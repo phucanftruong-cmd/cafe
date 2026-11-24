@@ -1,8 +1,51 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+@model List<CafeManagement.Web.Models.Product>
+@{
+    ViewData["Title"] = "Trang chủ";
+    var categories = (List<CafeManagement.Web.Models.Category>)ViewBag.Categories;
+    var q = ViewBag.Q as string;
+    int? selected = ViewBag.CategoryId;
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center mb-4">
+    <h1>☕ Quán Cafe</h1>
+    <p class="text-muted">Chọn món yêu thích của bạn</p>
+</div>
+
+<form method="get" class="row g-2 mb-3">
+    <div class="col-md-9">
+        <input name="q" value="@q" class="form-control" placeholder="Tìm đồ uống..." />
+    </div>
+    <div class="col-md-3 d-grid">
+        <button class="btn btn-dark">Tìm kiếm</button>
+    </div>
+</form>
+
+<div class="mb-4">
+    <a class="btn btn-sm @(selected == null ? "btn-dark" : "btn-outline-dark")" asp-action="Index">Tất cả</a>
+    @foreach (var c in categories)
+    {
+        <a class="btn btn-sm @(selected == c.Id ? "btn-dark" : "btn-outline-dark")"
+           asp-action="Index" asp-route-categoryId="@c.Id">@c.Name</a>
+    }
+</div>
+
+@if (!Model.Any())
+{
+    <p class="text-muted">Không tìm thấy món nào.</p>
+}
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3">
+    @foreach (var p in Model)
+    {
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <span class="badge bg-secondary mb-2">@p.Category?.Name</span>
+                    <h5 class="card-title">@p.Name</h5>
+                    <p class="card-text text-muted">@p.Description</p>
+                    <p class="fw-bold mb-0">@p.Price.ToString("N0") đ</p>
+                </div>
+            </div>
+        </div>
+    }
 </div>
