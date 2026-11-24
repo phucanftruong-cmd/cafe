@@ -1,4 +1,4 @@
-namespace CafeManagement.Web.Models;
+namespace CafeManagement.Data.Models;
 
 // Danh mục đồ uống (Cà phê, Trà, Sinh tố, Bánh...)
 public class Category

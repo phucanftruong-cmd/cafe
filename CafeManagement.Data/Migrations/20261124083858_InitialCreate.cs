@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace CafeManagement.Web.Migrations;
+namespace CafeManagement.Data.Migrations;
 
 /// <inheritdoc />
 public partial class _20261124083858_InitialCreate : Migration

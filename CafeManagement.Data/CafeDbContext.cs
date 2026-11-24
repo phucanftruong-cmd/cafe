@@ -1,7 +1,7 @@
-using CafeManagement.Web.Models;
+using CafeManagement.Data.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace CafeManagement.Web.Data;
+namespace CafeManagement.Data;
 
 public class CafeDbContext : DbContext
 {

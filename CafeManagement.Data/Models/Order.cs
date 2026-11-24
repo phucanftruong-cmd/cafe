@@ -1,4 +1,4 @@
-namespace CafeManagement.Web.Models;
+namespace CafeManagement.Data.Models;
 
 // Đơn hàng
 public class Order

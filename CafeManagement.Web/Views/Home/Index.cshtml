@@ -1,7 +1,7 @@
-@model List<CafeManagement.Web.Models.Product>
+@model List<CafeManagement.Data.Models.Product>
 @{
     ViewData["Title"] = "Trang chủ";
-    var categories = (List<CafeManagement.Web.Models.Category>)ViewBag.Categories;
+    var categories = (List<CafeManagement.Data.Models.Category>)ViewBag.Categories;
     var q = ViewBag.Q as string;
     int? selected = ViewBag.CategoryId;
 }

@@ -1,4 +1,4 @@
-namespace CafeManagement.Web.Models;
+namespace CafeManagement.Data.Models;
 
 // Chi tiết đơn hàng (mỗi dòng là một món)
 public class OrderDetail

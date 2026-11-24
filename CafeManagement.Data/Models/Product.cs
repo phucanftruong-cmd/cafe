@@ -1,4 +1,4 @@
-namespace CafeManagement.Web.Models;
+namespace CafeManagement.Data.Models;
 
 // Sản phẩm / đồ uống
 public class Product

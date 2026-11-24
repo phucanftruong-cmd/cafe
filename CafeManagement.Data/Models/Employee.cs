@@ -1,4 +1,4 @@
-namespace CafeManagement.Web.Models;
+namespace CafeManagement.Data.Models;
 
 // Nhân viên (dùng cho đăng nhập và phân quyền ở app quản trị)
 public class Employee

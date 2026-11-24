@@ -1,3 +1,4 @@
+using CafeManagement.Data;
 using CafeManagement.Web.Data;
 using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);

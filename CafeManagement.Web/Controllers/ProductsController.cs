@@ -1,3 +1,4 @@
+using CafeManagement.Data;
 using CafeManagement.Web.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;

@@ -15,4 +15,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="11.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CafeManagement.Data\CafeManagement.Data.csproj" />
+  </ItemGroup>
+
 </Project>

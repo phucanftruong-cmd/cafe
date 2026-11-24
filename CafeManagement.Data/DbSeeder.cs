@@ -1,6 +1,6 @@
-using CafeManagement.Web.Models;
+using CafeManagement.Data.Models;
 
-namespace CafeManagement.Web.Data;
+namespace CafeManagement.Data;
 
 public static class DbSeeder
 {
