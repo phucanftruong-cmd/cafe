@@ -1,0 +1,53 @@
+@model List<CafeManagement.Web.Models.CartItem>
+@{
+    ViewData["Title"] = "Đặt món";
+    var tables = (List<CafeManagement.Web.Models.CafeTable>)ViewBag.Tables;
+}
+
+<h2 class="mb-3">Xác nhận đặt món</h2>
+
+<div class="row">
+    <div class="col-md-7">
+        <form method="post" asp-action="Checkout">
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="mb-3">
+                <label class="form-label">Họ tên</label>
+                <input name="customerName" class="form-control" required />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Số điện thoại</label>
+                <input name="customerPhone" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Bàn</label>
+                <select name="tableId" class="form-select">
+                    <option value="">Mang đi</option>
+                    @foreach (var t in tables)
+                    {
+                        <option value="@t.Id">@t.Name (@t.Seats chỗ)</option>
+                    }
+                </select>
+            </div>
+
+            <button class="btn btn-dark">Xác nhận đặt món</button>
+            <a class="btn btn-outline-dark" asp-action="Index">Quay lại giỏ hàng</a>
+        </form>
+    </div>
+
+    <div class="col-md-5">
+        <ul class="list-group">
+            @foreach (var i in Model)
+            {
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>@i.Name × @i.Quantity</span>
+                    <span>@i.Total.ToString("N0") đ</span>
+                </li>
+            }
+            <li class="list-group-item d-flex justify-content-between fw-bold">
+                <span>Tổng cộng</span>
+                <span>@Model.Sum(i => i.Total).ToString("N0") đ</span>
+            </li>
+        </ul>
+    </div>
+</div>

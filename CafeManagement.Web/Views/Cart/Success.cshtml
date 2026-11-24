@@ -1,0 +1,30 @@
+@model CafeManagement.Web.Models.Order
+@{
+    ViewData["Title"] = "Đặt món thành công";
+}
+
+<div class="text-center mb-4">
+    <h2>✅ Đặt món thành công!</h2>
+    <p>Mã đơn hàng: <strong>#@Model.Id</strong></p>
+    <p class="text-muted">
+        @Model.CreatedAt.ToString("dd/MM/yyyy HH:mm") · @(Model.CafeTable?.Name ?? "Mang đi")
+    </p>
+</div>
+
+<ul class="list-group mb-3" style="max-width:520px;margin:auto">
+    @foreach (var d in Model.Details)
+    {
+        <li class="list-group-item d-flex justify-content-between">
+            <span>@d.Product?.Name × @d.Quantity</span>
+            <span>@((d.UnitPrice * d.Quantity).ToString("N0")) đ</span>
+        </li>
+    }
+    <li class="list-group-item d-flex justify-content-between fw-bold">
+        <span>Tổng cộng</span>
+        <span>@Model.TotalAmount.ToString("N0") đ</span>
+    </li>
+</ul>
+
+<div class="text-center">
+    <a class="btn btn-dark" asp-controller="Home" asp-action="Index">Tiếp tục gọi món</a>
+</div>
